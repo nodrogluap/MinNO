@@ -1,6 +1,6 @@
 [submodule "submodules/grpc"]
 	path = submodules/grpc
 	url = https://github.com/grpc/grpc.git
-[submodule "submodules/read_until_api"]
-	path = submodules/read_until_api
-	url = https://github.com/nanoporetech/read_until_api.git
+[submodule "submodules/minknow_api"]
+	path = submodules/minknow_api
+	url = https://github.com/nanoporetech/minknow_api.git
