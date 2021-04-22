@@ -1,6 +1,7 @@
-[submodule "submodules/grpc"]
-	path = submodules/grpc
-	url = https://github.com/grpc/grpc.git
 [submodule "submodules/minknow_api"]
 	path = submodules/minknow_api
 	url = https://github.com/nanoporetech/minknow_api.git
+[submodule "submodules/grpc"]
+	path = submodules/grpc
+	url = https://github.com/grpc/grpc.git
+	branch = v1.3.x

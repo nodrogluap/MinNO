@@ -1,0 +1,7 @@
+#exacutables
+
+#minknow_api directory
+include/minknow_api/
+
+#lib directory
+lib/
