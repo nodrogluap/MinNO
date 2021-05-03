@@ -46,5 +46,5 @@ WINDOW_FLAGS=-lWSock32 -lWS2_32 -lGdi32 -lUser32
 
 #----make objects for windows----#
 
-MinNO.exe: MinNO.cu Connection.h
+MinNO.exe: MinNO.c Connection.h
 	$(NVCC) -I. -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_GOOGLE_WIN) -D_WIN32_WINNT=0x0600 $(GRPC_FILES) MinNO.cu -o MinNO.exe -L$(GRPC_LIB_WIN) $(GRPC_FLAGS_WIN) -L$(PROTO_LIB_WIN) $(PROTO_FLAGS_WIN) -L$(EAY_LIB_WIN) $(EAY_FLAGS_WIN) -L$(ZLIB_LIB_WIN) $(ZLIB_FLAGS_WIN) -L$(WINDOW_LIB) $(WINDOW_FLAGS)
