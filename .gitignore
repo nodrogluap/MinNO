@@ -1,7 +1,14 @@
 #exacutables
+MinNO.exe
 
 #minknow_api directory
 include/minknow_api/
 
 #lib directory
 lib/
+
+#lib files
+MinNO.lib
+
+#exp files
+MinNO.exp
