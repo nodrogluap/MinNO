@@ -5,3 +5,6 @@
 	path = submodules/grpc
 	url = https://github.com/grpc/grpc.git
 	branch = v1.3.x
+[submodule "submodules/pthread-win32"]
+	path = submodules/pthread-win32
+	url = https://github.com/GerHobbelt/pthread-win32.git

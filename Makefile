@@ -1,8 +1,14 @@
 #----General Definitions----#
 
+#----Compilers----#
+
+CC=g++
+NVCC=nvcc
+
 #----Compiler Flags----#
 
 OPT= -O3
+CXX11=-std=c++11
 
 #----Directories----#
 
@@ -20,6 +26,9 @@ GRPC_FILES=$(MINKNOW)/acquisition.grpc.pb.cc $(MINKNOW)/acquisition.pb.cc $(MINK
 
 INCLUDE_GRPC_WIN=submodules/grpc/include
 INCLUDE_GOOGLE_WIN=submodules/grpc/third_party/protobuf/src
+INCLUDE_PTHREAD_WIN=submodules/pthread-win32
+
+PTHREAD_LIB=lib
 
 GRPC_LIB_WIN=submodules/grpc/bin/grpc/release
 PROTO_LIB_WIN=submodules/grpc/bin/protobuf/release
@@ -34,8 +43,12 @@ PROTO_FLAGS_WIN=-llibprotoc -llibprotobuf
 EAY_FLAGS_WIN=-llibeay32 -lssleay32
 ZLIB_FLAGS_WIN=-lzlib
 WINDOW_FLAGS=-lWSock32 -lWS2_32 -lGdi32 -lUser32
+PTHREAD_FLAGS=-lpthread_dll
 
 #----make objects for windows----#
 
-MinNO.exe: MinNO.c Connection.h
-	$(CC) $(OPT) -I. -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_GOOGLE_WIN) -D_WIN32_WINNT=0x0600 $(GRPC_FILES) MinNO.cu -o MinNO.exe -L$(GRPC_LIB_WIN) $(GRPC_FLAGS_WIN) -L$(PROTO_LIB_WIN) $(PROTO_FLAGS_WIN) -L$(EAY_LIB_WIN) $(EAY_FLAGS_WIN) -L$(ZLIB_LIB_WIN) $(ZLIB_FLAGS_WIN) -L$(WINDOW_LIB) $(WINDOW_FLAGS)
+# MinNO.exe: MinNO.cu Connection.h
+	# $(CC) $(OPT) -I. -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_PTHREAD_WIN) -I$(INCLUDE_GOOGLE_WIN) -D_WIN32_WINNT=0x0600 $(GRPC_FILES) MinNO.cu -o MinNO.exe -L$(PTHREAD_LIB) $(PTHREAD_FLAGS) -L$(GRPC_LIB_WIN) $(GRPC_FLAGS_WIN) -L$(PROTO_LIB_WIN) $(PROTO_FLAGS_WIN) -L$(EAY_LIB_WIN) $(EAY_FLAGS_WIN) -L$(ZLIB_LIB_WIN) $(ZLIB_FLAGS_WIN) -L$(WINDOW_LIB) $(WINDOW_FLAGS)
+	
+MinNO.exe: MinNO.cu Connection.h
+	$(NVCC) -I. -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_GOOGLE_WIN) -D_WIN32_WINNT=0x0600 $(GRPC_FILES) MinNO.cu -o MinNO.exe -L$(GRPC_LIB_WIN) $(GRPC_FLAGS_WIN) -L$(PROTO_LIB_WIN) $(PROTO_FLAGS_WIN) -L$(EAY_LIB_WIN) $(EAY_FLAGS_WIN) -L$(ZLIB_LIB_WIN) $(ZLIB_FLAGS_WIN) -L$(WINDOW_LIB) $(WINDOW_FLAGS)
