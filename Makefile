@@ -50,5 +50,9 @@ PTHREAD_FLAGS=-lpthread_dll
 # MinNO.exe: MinNO.cu Connection.h
 	# $(CC) $(OPT) -I. -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_PTHREAD_WIN) -I$(INCLUDE_GOOGLE_WIN) -D_WIN32_WINNT=0x0600 $(GRPC_FILES) MinNO.cu -o MinNO.exe -L$(PTHREAD_LIB) $(PTHREAD_FLAGS) -L$(GRPC_LIB_WIN) $(GRPC_FLAGS_WIN) -L$(PROTO_LIB_WIN) $(PROTO_FLAGS_WIN) -L$(EAY_LIB_WIN) $(EAY_FLAGS_WIN) -L$(ZLIB_LIB_WIN) $(ZLIB_FLAGS_WIN) -L$(WINDOW_LIB) $(WINDOW_FLAGS)
 	
+# MinNO.exe: MinNO.cu Connection.h
+	# $(NVCC) -I. -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_GOOGLE_WIN) -D_WIN32_WINNT=0x0600 $(GRPC_FILES) MinNO.cu -o MinNO.exe -L$(GRPC_LIB_WIN) $(GRPC_FLAGS_WIN) -L$(PROTO_LIB_WIN) $(PROTO_FLAGS_WIN) -L$(EAY_LIB_WIN) $(EAY_FLAGS_WIN) -L$(ZLIB_LIB_WIN) $(ZLIB_FLAGS_WIN) -L$(WINDOW_LIB) $(WINDOW_FLAGS)
+	
 MinNO.exe: MinNO.cu Connection.h
-	$(NVCC) -I. -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_GOOGLE_WIN) -D_WIN32_WINNT=0x0600 $(GRPC_FILES) MinNO.cu -o MinNO.exe -L$(GRPC_LIB_WIN) $(GRPC_FLAGS_WIN) -L$(PROTO_LIB_WIN) $(PROTO_FLAGS_WIN) -L$(EAY_LIB_WIN) $(EAY_FLAGS_WIN) -L$(ZLIB_LIB_WIN) $(ZLIB_FLAGS_WIN) -L$(WINDOW_LIB) $(WINDOW_FLAGS)
+	$(NVCC) -I. -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_GOOGLE_WIN) -D_WIN32_WINNT=0x0600 $(GRPC_FILES) MinNO.cu -o MinNO.exe submodules/grpc/bin/grpc/release/gpr.lib submodules/grpc/bin/grpc/release/grpc++.lib submodules/grpc/bin/grpc/release/grpc.lib submodules/grpc/bin/protobuf/release/libprotoc.lib submodules/grpc/bin/protobuf/release/libprotobuf.lib submodules/grpc/bin/dependencies/libeay32.lib submodules/grpc/bin/dependencies/ssleay32.lib submodules/grpc/bin/zlib/release/lib/zlib.lib -L$(WINDOW_LIB) $(WINDOW_FLAGS)
+
