@@ -5,18 +5,19 @@ This can be useful for extending the life of the consumable [flow cell](https://
 
 # Quick start
 
-1. Download the prebuilt executable for Windows from [releases page](https://github.com/nodrogluap/MinNO/releases) and place it in C:\Windows.
+1. Download the prebuilt ``MinNO.exe`` executable for Windows from [releases page](https://github.com/nodrogluap/MinNO/releases) and place it on the desktop.
 
-2. Start your experiment using MinKNOW as per usual. Let's say you are writing the experiment output data to D:\data\. Once the experiment is running, open a Windows command prompt and start MinNO, in this case, stopping after 5 billion bases have been generated:
-
+2. Start your experiment using MinKNOW as per usual, with live base calling enabled. Suppose you are writing the experiment output data to D:\data\. Once the experiment is running, Shift+Right click on the desktop, and choose the "Open PowerShell window here" option (or "Open command window here" depending on the Windows version). Start MinNO by typing the following at the command prompt (in this case, stopping after 2 billion bases have been generated):
 
 ```
-MinNO 5e9 D:\data\reads\experiment_name\fastq\pass
+minno 2e9 D:\data\reads\experiment_name\fastq\pass
 ```
+
+3. The sequencing will automatically stop after 2 billion bases have been called.
 
 # Compiling from source
 
-This code has only been tested on Windows, and requires that you have [Visual Studio 14 / 2015](https://visualstudio.microsoft.com/vs/older-downloads/), otherwise you may need to tinker with the paths in the batch file.
+This code has only been tested on Windows, and requires that you have [Visual Studio 14 / 2015](https://visualstudio.microsoft.com/vs/older-downloads/) and the NVIDIA C++ compiler, otherwise you may need to tinker with the paths in the batch file.
 
 ```
 git clone --recurse-submodules https://github.com/nodrogluap/OpenDBA/
