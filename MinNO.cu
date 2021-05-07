@@ -8,6 +8,7 @@
 	#define GetCurrentDir _getcwd
 	#define sleep(x) Sleep(1000 * (x))
 	#define FILE_SEPARATOR "\\"
+	#define ZLIB_WINAPI
 #else
 	#include <unistd.h>
 	#define GetCurrentDir getcwd
