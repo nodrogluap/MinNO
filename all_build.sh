@@ -24,8 +24,9 @@ cd ../../../
 echo "Building *.pb.cc andd *.pb.h files using *.proto files:"
 # Old directories for building grpc libraries commented out
 #./bin/opt/protobuf/protoc -I include/minknow/rpc/ -I grpc/third_party/protobuf/src/ --grpc_out=include/minknow/rpc/ --plugin=protoc-gen-grpc=bin/opt/grpc_cpp_plugin include/minknow/rpc/*.proto
-./bin/bins/opt/protobuf/protoc -I minknow_api/proto/ -I grpc/third_party/protobuf/src/ --grpc_out=../include/ --plugin=protoc-gen-grpc=bin/bin/grpc_cpp_plugin minknow_api/proto/minknow_api/*.proto
+mkdir -p ../include/
+./bin/opt/protobuf/protoc -I minknow_api/proto/ -I grpc/third_party/protobuf/src/ --grpc_out=../include/ --plugin=protoc-gen-grpc=bin/bin/grpc_cpp_plugin minknow_api/proto/minknow_api/*.proto
 # Old directories for building grpc libraries commented out
 #./bin/opt/protobuf/protoc -I include/minknow/rpc/ -I grpc/third_party/protobuf/src/ --cpp_out=include/minknow/rpc/ include/minknow/rpc/*.proto
-./bin/bins/opt/protobuf/protoc -I minknow_api/proto/ -I grpc/third_party/protobuf/src/ --cpp_out=../include/ minknow_api/proto/minknow_api/*.proto
+./bin/opt/protobuf/protoc -I minknow_api/proto/ -I grpc/third_party/protobuf/src/ --cpp_out=../include/ minknow_api/proto/minknow_api/*.proto
 echo "Build complete!"
