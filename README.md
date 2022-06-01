@@ -25,3 +25,12 @@ cd MinNO
 all_build.bat
 make MinNO.exe
 ```
+
+For a Linux build, similarly:
+
+```
+git clone --recurse-submodules https://github.com/nodrogluap/MinNO
+cd MinNO
+sh all_build.sh
+make MinNO
+```
