@@ -26,7 +26,7 @@ all_build.bat
 make MinNO.exe
 ```
 
-For a Linux build, similarly:
+For a Linux build, similarly (requires that you have automake+autoconf+libtool pre-installed, e.g. via the system package manager or conda):
 
 ```
 git clone --recurse-submodules https://github.com/nodrogluap/MinNO
