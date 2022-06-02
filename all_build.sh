@@ -8,7 +8,7 @@ echo "Libraries will be built to: ${PREFIX_PATH}"
 echo "Building grpc libraries:"
 cd submodules/grpc
 git submodule update --init
-make
+make HAS_SYSTEM_OPENSSL_ALPN=false
 cp -R bins ../bin/
 prefix=../bin make install
 cd ../bin/lib
