@@ -31,6 +31,7 @@ WINDOW_LIB="C:\Program Files (x86)\Windows Kits\10\Lib\10.0.17763.0\um\x64"
 
 GRPC_FLAGS_WIN=-lgpr -lgrpc++ -lgrpc
 PROTO_FLAGS_WIN=-llibprotoc -llibprotobuf
+PROTO_FLAGS_LINUX=-lprotoc -lprotobuf
 EAY_FLAGS_WIN=-llibeay32 -lssleay32
 ZLIB_FLAGS_WIN=-lzlib
 WINDOW_FLAGS=-lWSock32 -lWS2_32 -lGdi32 -lUser32
@@ -38,4 +39,7 @@ WINDOW_FLAGS=-lWSock32 -lWS2_32 -lGdi32 -lUser32
 #----make objects for windows----#
 
 MinNO.exe: MinNO.c Connection.h
-	$(CC) $(OPT) -I. -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_GOOGLE_WIN) -D_WIN32_WINNT=0x0600 $(GRPC_FILES) MinNO.cu -o MinNO.exe -L$(GRPC_LIB_WIN) $(GRPC_FLAGS_WIN) -L$(PROTO_LIB_WIN) $(PROTO_FLAGS_WIN) -L$(EAY_LIB_WIN) $(EAY_FLAGS_WIN) -L$(ZLIB_LIB_WIN) $(ZLIB_FLAGS_WIN) -L$(WINDOW_LIB) $(WINDOW_FLAGS)
+	$(CC) $(OPT) -I. -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_GOOGLE_WIN) -D_WIN32_WINNT=0x0600 $(GRPC_FILES) MinNO.c -o MinNO.exe -L$(GRPC_LIB_WIN) $(GRPC_FLAGS_WIN) -L$(PROTO_LIB_WIN) $(PROTO_FLAGS_WIN) -L$(EAY_LIB_WIN) $(EAY_FLAGS_WIN) -L$(ZLIB_LIB_WIN) $(ZLIB_FLAGS_WIN) -L$(WINDOW_LIB) $(WINDOW_FLAGS)
+
+MinNO: MinNO.c Connection.h
+	$(CXX) $(OPT) -std=c++11 -I$(INCLUDE) -I$(INCLUDE_GRPC_WIN) -I$(INCLUDE_GOOGLE_WIN) $(GRPC_FILES) MinNO.c -o MinNO -static -Lsubmodules/bin/lib $(GRPC_FLAGS_WIN) $(PROTO_FLAGS_LINUX) -L$(ZLIB_LIB_WIN) $(ZLIB_FLAGS_WIN)
