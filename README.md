@@ -17,7 +17,7 @@ This can be useful for extending the life of the consumable [flow cell](https://
 
 # Compiling from source
 
-This code has only been tested on Windows, and requires that you have [Visual Studio 14 / 2015](https://visualstudio.microsoft.com/vs/older-downloads/) and the NVIDIA C++ compiler, otherwise you may need to tinker with the paths in the batch file.
+This code's Windows build has only been tested with [Visual Studio 14 / 2015](https://visualstudio.microsoft.com/vs/older-downloads/) and the NVIDIA C++ compiler, otherwise you may need to tinker with the paths in the batch file.
 
 ```
 git clone --recurse-submodules https://github.com/nodrogluap/MinNO
