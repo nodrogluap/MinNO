@@ -34,3 +34,4 @@ cd MinNO
 sh all_build.sh
 make MinNO
 ```
+The Linux build works for gcc 4.8.5. Later versions of gcc cause libc and grpc symbol conflicts, still to be resolved.
